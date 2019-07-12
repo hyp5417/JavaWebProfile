@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="save" content="history">
+<title th:text="#{login.title}"></title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/goods/login.css}">
+<script th:src="@{/js/goods/jquery-3.3.1.min.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/goods/less.min.js}"></script>
+<script th:src="@{/js/goods/login.js}"></script>
+</head>
+<body>
+	<!-- login -->
+		<div class="h_panel">
+			<div class="">
+				<a href="#"><img style="margin-top:50px; width:200px;" th:src="@{/img/mito-2.jpg}"></a><a th:href="@{/admin/tologin}" style="margin-left: 850px;">管理员登录</a>
+			</div>
+		</div>
+		<div class="login_panel">
+			<div class="login-form">
+				<div class="nav_tabs_panel">
+					<div class="nav-tabs">
+						<a id="login_tab" href="#" class="a_now">[[#{login.sign}]]</a>&nbsp;<span style="color: #424242;">|</span>&nbsp;<a id="Qr" href="#" class="font_family">[[#{login.scann}]]</a>
+					</div>
+				</div>
+				<div id="tabs-con_QR" class="tabs-con" style="display: none;">
+					<i class="QR"><img th:src="@{/img/MiTo.png}" style="height: 200px; width: 200px;"></i>
+					<div class="other_login_type" style="text-align: center; color: #757575;font-size: 14px;">
+						<p>[[#{login.p1}]]</p>
+						<p>[[#{login.p2}]]</p>
+					</div>
+				</div>
+				<div id="tabs-con" class="tabs-con" style="display: ;">
+					<form id="login-form" th:action="@{/user/login.action}" method="POST" >
+						<input id="username" class="inputbox" type="text" th:placeholder="#{login.userPhone}" name="userPhone" autocomplete="off" maxlength="11"  th:value="${session.inputUserPhone}"></input><br />
+						<input id="userpwd" class="inputbox" type="password" th:placeholder="#{login.password}" name="userPwd" maxlength="20"></input>
+						<p id="userErrorInfo" class="p1"  th:text="${session.userErrorInfo}" ></p>
+						<input id="bottom1" class="bottom1" type="submit" th:value="#{login.btn}"/>
+						<input type="hidden" id="inputPhone" th:value="#{login.inputPhone}"/>
+						<input type="hidden" id="inputPassword" th:value="#{login.inputPassword}"/>
+						<div class="other_panel">
+							<div class="n_links_area">
+								<a id="a1" href="#" class="link1" >[[#{login.creat}]]</a><span style="color: #757575;font-size: 15px;"> | </span><a id="a2" href="#" class="link1">[[#{login.forgot}]]</a>
+							</div>
+						</div>
+					</form>
+					<div class="other_login_type">
+						<div class="order">
+							<span class="line"></span>
+							<span class="txt">[[#{login.morelogin}]]</span>
+							<span class="line"></span>
+						</div>
+					</div>
+					<div class="login-links">
+						<a href="#">
+							<i><img th:src="@{/img/07.png}" class="icon_img" ></i>
+						</a>
+						<a href="#">
+							<i><img th:src="@{/img/01.png}" class="icon_img2" ></i>
+						</a>
+						<a href="#">
+							<i><img th:src="@{/img/05.png}" class="icon_img2" ></i>
+						</a>
+						<a href="#">
+							<i><img th:src="@{/img/06.png}" class="icon_img2" ></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="a-language"><a  th:href="@{/user/login(l='zh_CN')}">中文</a> | <a   th:href="@{/user/login(l='en_US')}">English</a> | <a th:href="@{/FAQ.html}">[[#{login.problem}]]</a> | <a href="#" >[[#{login.privacy}]]</a></div>
+			<div class="a-law">[[#{login.info1}]]<a href="http://www.beian.gov.cn/portal/index?token=749f1bd9-9036-40e6-bca0-96d98801c200"><img th:src="@{/img/ghs.png}" alt="" /></a>[[#{login.info2}]]</div>
+
+		</footer>
+</body>
+</html>
